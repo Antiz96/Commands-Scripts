@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIRECTORY=/tmp/tmp_afp/`date +%Y%m%d`
+
+ 
+
+if [ ! -d "$DIRECTORY" ]; then
+
+        mkdir /tmp/tmp_afp/`date +%Y%m%d`
+
+fi
+
+ 
+
+cp -p /opt/services/dodoc_workflow/CANAL/AFP/*.afp /tmp/tmp_afp/`date +%Y%m%d` && rm -f /opt/services/dodoc_workflow/CANAL/AFP/*.afp && echo ok
