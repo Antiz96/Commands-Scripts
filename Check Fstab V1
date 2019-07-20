@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sudo mount -a 2>&1 | wc –l
+
+count=`sudo mount -a 2>&1 | wc –l`
+
+if [ "$count" = 0 ]; then                                                                                                                                                                                                 # Vérification si erreur fstab
+
+  echo "FSTAB OK"
+
+else
+
+  echo "FSTAB KO"
+
+  exit 2
+
+fi
