@@ -1,4 +1,5 @@
 #Examples of use for an user input error management using "while" and implementation of "read" (with -s, -p arguments) inside some conditions
+#Useful if you want to give an authentication to your scripts
 
 #!/bin/bash
 
