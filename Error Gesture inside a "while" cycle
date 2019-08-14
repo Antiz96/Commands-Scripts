@@ -1,0 +1,25 @@
+#Exemples of use for an user input error gesture using "while" and implementation of "read" (with -s, -p arguments) inside some conditions
+
+#!/bin/bash
+
+user="a"
+
+echo "Hello, what's your ID ?"
+
+
+while [ "$user" = "a" ]
+do
+
+        read -p "Username : " user
+        read -sp "Password : " pass
+
+if [ "$user" = "Robin" ] &&  [ "$pass" = "1234" ]; then
+        echo ""
+        echo "Good to see you back Robin"
+else
+        echo ""
+        echo "Wrong ID, please retry"
+        user="a"
+fi
+
+done
