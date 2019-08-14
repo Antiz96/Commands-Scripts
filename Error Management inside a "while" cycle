@@ -1,4 +1,4 @@
-#Exemples of use for an user input error gesture using "while" and implementation of "read" (with -s, -p arguments) inside some conditions
+#Examples of use for an user input error management using "while" and implementation of "read" (with -s, -p arguments) inside some conditions
 
 #!/bin/bash
 
