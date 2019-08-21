@@ -1,4 +1,4 @@
-#Moving file to a tamper directory with today's date before deleting them
+##Moving file to a tamper directory with today's date before deleting them
 
 #!/bin/bash
 
