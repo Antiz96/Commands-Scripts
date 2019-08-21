@@ -1,3 +1,5 @@
+#Moving file to a tamper directory with today's date before deleting them
+
 #!/bin/bash
 
 DIRECTORY=/tmp/tmp_afp/`date +%Y%m%d`
