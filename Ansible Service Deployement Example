@@ -1,4 +1,4 @@
-#Install Script
+##Install Script##
 (ansible) ansible@AnsibleMaster:~$ cat install-apache.yml 
 ---
 - name: "Installation apache"
@@ -7,7 +7,7 @@
     - role: "apache"
       php_install: yes
 
-#Tasks Script
+##Tasks Script##
 (ansible) ansible@AnsibleMaster:~$ cat roles/apache/tasks/main.yml 
 ---
 
@@ -23,3 +23,12 @@
     name: "httpd"
     state: "started"
     enabled: yes
+    
+##Handler Script##
+
+(ansible) ansible@AnsibleMaster:~$ cat roles/apache/handlers/main.yml 
+---
+- name: "apache restart"
+  service:
+    name: "httpd"
+    state: "restarted"
