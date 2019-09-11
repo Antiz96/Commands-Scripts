@@ -1,0 +1,15 @@
+(ansible) ansible@AnsibleMaster:~$ cat roles/apache/tasks/main.yml 
+---
+
+#1. Cette tâche permet d’installer Apache (httpd) à l’aide du module yum
+- name: "apache installation"
+  yum:
+    name: "httpd"
+    state: "present"
+
+#2. Cette tâche active le service Apache
+- name: "apache service activation"
+  service:
+    name: "httpd"
+    state: "started"
+    enabled: yes
