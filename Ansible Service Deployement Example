@@ -1,3 +1,11 @@
+##inventaire.ini##
+(ansible) ansible@AnsibleMaster:~$ cat inventaire.ini 
+[Apache]
+AnsibleNode1
+
+[BDD]
+AnsibleNode2
+
 ##Install Script##
 (ansible) ansible@AnsibleMaster:~$ cat install-apache.yml 
 ---
@@ -25,10 +33,25 @@
     enabled: yes
     
 ##Handler Script##
-
 (ansible) ansible@AnsibleMaster:~$ cat roles/apache/handlers/main.yml 
 ---
 - name: "apache restart"
   service:
     name: "httpd"
     state: "restarted"
+
+##Install Script on Several Hosts (inventaire.ini)##
+(ansible) ansible@AnsibleMaster:~$ cat install-mediawiki.yml 
+- name: "MediaWiki db configuration"
+  hosts: BDD
+  gather_facts: no
+  tags: [ "mariadb", "mysql" ]
+  roles:
+    - role: "mediawiki/confdb"
+
+- name: "MediaWiki apache configuration"
+  hosts: Apache
+  gather_facts: no
+  tags: "apache"
+  roles:
+    - role: "mediawiki/confapache"
