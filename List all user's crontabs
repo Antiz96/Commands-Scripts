@@ -1,4 +1,4 @@
-##Listing all local user's crontab :
+##Listing all local user's crontab##
 
 #!/bin/bash
 
