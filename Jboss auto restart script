@@ -33,13 +33,13 @@ jboss_ws=$(ps -f -u  jboss | grep java | grep ws-prod)
 
 if [ ! jboss_web ] || [ ! jboss_ut ] || [ ! jboss_ws ] #|| [ ! jboss_sched ] #A décommenter sur les jboss qui possèdent un scheduler
 then
-        echo -e "Subject:Erreur de redemarrage du JBoss.\n\nBonjour\n\nLe JBoss a rencontré un soucis de redémarrage, merci de vérifier les services,\n\nCordialement." | /usr/sbin/sendmail systeme-si@dataone.fr
+        echo -e "Subject:Erreur de redemarrage du JBoss.\n\nBonjour\n\nLe JBoss a rencontré un soucis de redémarrage, merci de vérifier les services,\n\nCordialement." | /usr/sbin/sendmail example@mail.com
 
         echo "Fin du redémarrage des jboss en erreur" | tee -a /var/log/restart_jboss.log
         date >> /var/log/restart_jboss.log
         echo "" >> /var/log/restart_jboss.log
 else
-        echo -e "Subject:Redemarrage du JBoss.\n\nBonjour\n\nLe JBoss a redémarré avec succès,\n\nCordialement." | /usr/sbin/sendmail systeme-si@dataone.fr
+        echo -e "Subject:Redemarrage du JBoss.\n\nBonjour\n\nLe JBoss a redémarré avec succès,\n\nCordialement." | /usr/sbin/sendmail example@mail.fr
 
         echo "Fin du redémarrage des jboss" | tee -a /var/log/restart_jboss.log
         date >> /var/log/restart_jboss.log
