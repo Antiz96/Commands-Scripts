@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Définition des deux dossiers dans lesquels chercher une correspondance sur GDPDC1
+#Définition des deux dossiers dans lesquels chercher une correspondance sur serv1
 sssd="/etc/sssd/sssd.conf"
 ssh="/etc/ssh/"
 
