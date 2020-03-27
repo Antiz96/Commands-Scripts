@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#Définition des deux dossiers dans lesquels chercher une correspondance sur GDPDC1
+#Définition des deux dossiers dans lesquels chercher une correspondance sur serv1
 sssd="/etc/sssd/sssd.conf"
 ssh="/etc/ssh/*"
 
-#Définition des variables permettant de vérifier si une correspondance a été trouvé dans les dossiers
+#Définition des variables permettant de vérifier si une correspondance a été trouvée dans les dossiers
 grepsssd=$(grep serv1 "$sssd" | wc -l)
 grepssh=$(grep serv1 "$ssh" | wc -l)
 
