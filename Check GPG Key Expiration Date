@@ -2,14 +2,14 @@
 
 #Check GPG Key End Date
 
-DIR=/path/to/gpg/keys
+DIR=/opt/services/dodoc_workflow/GRDF/PGP-Encrypt-Decrypt
 
 function run() {
 
                 RESULT=$(gpg $1 | grep -v pub | awk '{print $5}' | cut -f1 -d "]" | sed s/\-//g)
 }
 
-for i in $(ls $DIR/*.asc)
+for i in $(ls $DIR/*.asc | grep -v private)
 do
         run $i
 done
