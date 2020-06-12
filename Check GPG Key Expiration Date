@@ -6,7 +6,7 @@ DIR=/opt/services/dodoc_workflow/GRDF/PGP-Encrypt-Decrypt
 
 function run() {
 
-                RESULT=$(gpg --with-colons $1 | grep -v pub | awk '{print $3}' | cut -f1 -d "]" | sed s/\-//g)
+                RESULT=$(gpg $1 | grep -v pub | awk '{print $5}' | cut -f1 -d "]" | sed s/\-//g)
 }
 
 for i in $(ls $DIR/*.asc)
