@@ -2,7 +2,7 @@
 
 #Check GPG Key End Date
 
-DIR=/opt/services/dodoc_workflow/GRDF/PGP-Encrypt-Decrypt
+DIR=/path/to/gpg/keys
 
 function run() {
 
