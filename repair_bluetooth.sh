@@ -3,14 +3,13 @@
 read -n 1 -r -s -p $'Please, unplug the USB bluetooth dongle, then press enter to continue\n'
 echo ""
 
-install=$(cd /media/rcandau/Other/bluetooth/bt_usb/ && sudo make install > /dev/null 2>&1 && echo "1" || echo "0")
+install=$(cd /run/media/rcandau/DATA/Other/bluetooth/bt_usb/ && sudo make install > /dev/null 2>&1 && echo "1" || echo "0")
 
 if [ "$install" = 1 ]; then
 	read -n 1 -r -s -p $'Please, plug the USB bluetooth dongle, then press enter to continue\n'
 	echo ""
 	sleep 3
-	
-	#change the grep by whatever your USB bluetooth dongle BD address is
+
 	hci=$(hciconfig -a | grep "24:4B:FE:3A:1A:FD" | wc -l)
 	if [ "$hci" = 1 ]; then
 		echo "USB bluetooth dongle recognized, everything seems ok :)"
