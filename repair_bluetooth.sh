@@ -22,5 +22,5 @@ if [ "$install" = 1 ]; then
 	fi
 else
 	echo "Installation failed, something went wrong"
-	echo "Please, try to relaunch the script and make sure you followed each steps"
+	echo "Please, try to relaunch the script and make sure you followed each steps correctly"
 fi
