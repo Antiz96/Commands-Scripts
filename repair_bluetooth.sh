@@ -22,10 +22,11 @@ else
         echo ""
 
         bluetooth_status=$(sudo systemctl status bluetooth | grep -w "active (running)" | wc -l)
-
         if [ "$bluetooth_status" = 1 ]; then
                 echo "Bluetooth service is running"
-                exit 0
+                echo "Launching the install_bluetooth_driver.sh script"
+                echo ""
+                ~/Documents/scripts/install_bluetooth_driver.sh && exit 0
         else
                 echo "Bluetooth service has a problem"
                 echo "Please check the following return"
