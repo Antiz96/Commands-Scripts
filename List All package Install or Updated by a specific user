@@ -1,1 +1,3 @@
-for i in $(yum history | grep -i ansible | awk '{ print $1}'); do yum history info $i; done
+#!/bin/bash
+
+for i in $(yum history | grep -i ansible | awk '{ print $1}'); do yum history info "$i"; done
