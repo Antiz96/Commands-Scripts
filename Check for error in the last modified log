@@ -1,3 +1,3 @@
-#!bin/bash
+#!/bin/bash
 
-grep -i "error" "`ls -tr /path/to/logs/ | tail -1`" | wc -l
+grep -ci "error" "$(ls -tr /path/to/logs/ | tail -1)"
