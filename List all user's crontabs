@@ -1,10 +1,8 @@
-##Listing all local user's crontab##
-
 #!/bin/bash
 
 result=$(for user in $(cut -f1 -d: /etc/passwd)
 do
-        echo -e "\n\n==> $user:" && crontab -u $user -l
+        echo -e "\n\n==> $user:" && crontab -u "$user" -l
 done)
 
 echo "$result"
