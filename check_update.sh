@@ -16,7 +16,6 @@ fi
 if [ -z "$PACKAGES" ] && [ -z "$AURPACKAGES" ];then
 	echo -e "No update available\n" && read -n 1 -r -s -p $'Press \"enter\" to quit\n'
 else
-	echo ""
 	read -n 1 -r -s -p $'Press \"enter\" to apply updates or \"ctrl + c\" to quit\n'
 	sudo pacman -Syu && yay -Syu
 fi
