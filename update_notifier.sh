@@ -1,8 +1,8 @@
 #!/bin/bash
 UPDATE_NUMBER=$( (/usr/bin/checkupdates && /usr/bin/yay -Qua) | wc -l)
 
-if [ "$UPDATE_NUMBER" -eq 1 ]; then
-	notify-send "Update" "$UPDATE_NUMBER update available" -i update
-elif [ "$UPDATE_NUMBER" -gt 1 ]; then
-	notify-send "Update" "$UPDATE_NUMBER updates available" -i update
+if [ "$UPDATE_NUMBER" -ne 0 ]; then
+        echo "$UPDATE_NUMBER"
+else
+        echo ""
 fi
