@@ -1,4 +1,5 @@
 #!/bin/bash
+
 PACKAGES=$(/usr/bin/checkupdates | awk '{print $1}')
 AURPACKAGES=$(/usr/bin/yay -Qua | awk '{print $1}')
 
