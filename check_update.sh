@@ -21,7 +21,7 @@ else
         sed -i "s/mintupdate-checking/mintupdate-installing/" /home/rcandau/Documents/scripts/genmon_update.sh && xfce4-panel --plugin-event=genmon-22:refresh:bool:true
         sudo pacman -Syu && yay -Syu
 
-        if [ "$(echo $?)" -ne 0 ]; then
+        if [ "$?" -ne 0 ]; then
                 sed -i "s/mintupdate-installing/mintupdate-checking/" /home/rcandau/Documents/scripts/genmon_update.sh && xfce4-panel --plugin-event=genmon-22:refresh:bool:true
                 echo -e "\nUpdates have been aborted\n" && read -n 1 -r -s -p $'Press \"enter\" to quit\n'
                 exit 1
