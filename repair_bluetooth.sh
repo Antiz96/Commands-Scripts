@@ -1,37 +1,23 @@
 #!/bin/bash
 
-bluetooth_error=$(sudo systemctl status bluetooth | grep -wc "Condition check resulted in Bluetooth service being skipped.")
+bluetooth_status=$(sudo systemctl status bluetooth | grep -wc "active (running)")
 
-if [ "$bluetooth_error" = 0 ]; then
-        echo "Bluetooth service has no condition error"
-        echo ""
+if [ "$bluetooth_status" = 0 ]; then
+        sudo modprobe btusb && sudo systemctl restart bluetooth && echo -e "Bluetooth service repaired and restarted\n" || exit 1
 
         bluetooth_status=$(sudo systemctl status bluetooth | grep -wc "active (running)")
         if [ "$bluetooth_status" = 1 ]; then
                 echo "Bluetooth service is running"
+                echo -e "Launching the install_bluetooth_driver.sh script\n"
+                ~/Documents/scripts/install_bluetooth_driver.sh || exit 1
                 exit 0
         else
                 echo "Bluetooth service has a problem"
-                echo "Please check the following return"
-                echo ""
+                echo -e "Please check the following return\n"
                 sudo systemctl status bluetooth
                 exit 1
         fi
 else
-        sudo modprobe btusb && sudo systemctl restart bluetooth && echo "Bluetooth service repaired and restarted"
-        echo ""
-
-        bluetooth_status=$(sudo systemctl status bluetooth | grep -wc "active (running)")
-        if [ "$bluetooth_status" = 1 ]; then
-                echo "Bluetooth service is running"
-                echo "Launching the install_bluetooth_driver.sh script"
-                echo ""
-                ~/Documents/scripts/install_bluetooth_driver.sh && exit 0
-        else
-                echo "Bluetooth service has a problem"
-                echo "Please check the following return"
-                echo ""
-                sudo systemctl status bluetooth
-                exit 1
-        fi
+        echo "Bluetooth service is already running correctly"
+        exit 0
 fi
