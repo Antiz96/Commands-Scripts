@@ -7,6 +7,7 @@ install=$(cd /run/media/rcandau/data/bluetooth/bt_usb/ && sudo make install > /d
 
 if [ "$install" = "true" ]; then
         read -n 1 -r -s -p $'Please, plug the USB bluetooth dongle, then press enter to continue\n'
+        echo ""
         sleep 3
 
         hci=$(hciconfig -a | grep -c "24:4B:FE:3A:1A:FD")
