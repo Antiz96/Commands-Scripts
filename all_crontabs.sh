@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 result=$(for user in $(cut -f1 -d: /etc/passwd)
 do

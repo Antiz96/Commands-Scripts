@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 read -n 1 -r -s -p $'Please, unplug the USB bluetooth dongle, then press enter to continue\n'
 echo ""

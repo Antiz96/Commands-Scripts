@@ -1,3 +1,0 @@
-#!/bin/bash
-
-grep -ci "error" "$(ls -tr /path/to/logs/ | tail -1)"

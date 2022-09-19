@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 bluetooth_status=$(sudo systemctl status bluetooth | grep -wc "active (running)")
 
