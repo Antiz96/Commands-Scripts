@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 UPDATE_NUMBER=$( (/usr/bin/checkupdates ; /usr/bin/yay -Qua) | wc -l)
 

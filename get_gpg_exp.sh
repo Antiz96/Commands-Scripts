@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #Check GPG Key End Date
 
-DIR=/path/to/PGP/keys
+DIR=${HOME}/.gnupg/
 
 function run() {
 
