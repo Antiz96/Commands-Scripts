@@ -1,0 +1,11 @@
+#When there's too much files in a directory (usually +10 000), somes Linux commands doesn't work anymore
+#Here's a useful command to bypass this limitation (the idea is to execute the command on each files separetly instead of execute it on all files at the same time)
+
+for i in `ls /path/`; do command /path/$i; done
+
+#Example with a "chown" command
+for i in `ls /path/`; do chown root:root /path/$i; done
+
+#Alternatively, you can copy the file list to a file and use a while loop to treat them 1 by 1
+find /path/ > /tmp/file_list.txt
+while read line; do cp -rp "$line" /backup/; done < /tmp/file_list.txt
