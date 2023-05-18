@@ -1,2 +1,2 @@
-# Bash-Scripts
-Useful Bash Scripts/Supervision Scripts
+# Commands-Scripts
+Useful commands/scripts 
