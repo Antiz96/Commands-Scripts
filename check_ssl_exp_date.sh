@@ -1,18 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-DIR=/opt/ssl
+dir=/opt/ssl
 
 function check_expiration() {
-        DATE_EXP=$(openssl x509 -enddate -noout -in "${1}" | cut -f2 -d "=" | awk '{print $1,$2,$4}')
-        DIFF_DATE=$(( ("$(date -d "${DATE_EXP}" +%s)"-"$(date +%s)")/86400 ))
+        date_exp=$(openssl x509 -enddate -noout -in "${1}" | cut -f2 -d "=" | awk '{print $1,$2,$4}')
+        diff_date=$(( ("$(date -d "${date_exp}" +%s)"-"$(date +%s)")/86400 ))
 }
 
-for i in "${DIR}"/*.{crt,cer,pem}
+for i in "${dir}"/*.{crt,cer,pem}
 do
         [ -e "${i}" ] || break
         check_expiration "${i}"
 
-        if [ "${DIFF_DATE}" -le 30 ]; then
-                echo "SSL cert \"${i}\" expires in ${DIFF_DATE} days"
+        if [ "${diff_date}" -le 30 ]; then
+                echo "SSL cert \"${i}\" expires in ${diff_date} days"
         fi
 done
