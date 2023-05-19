@@ -3,7 +3,7 @@
 read -n 1 -r -s -p $'Please, unplug the USB bluetooth dongle, then press enter to continue\n'
 echo ""
 
-install=$(cd /run/media/rcandau/data/bluetooth/bt_usb/ && sudo make install > /dev/null 2>&1 && echo "true" || echo "false")
+install=$(cd /run/media/antiz/data/bluetooth/bt_usb/ && sudo make install > /dev/null 2>&1 && echo "true" || echo "false")
 
 if [ "${install}" = "true" ]; then
         read -n 1 -r -s -p $'Please, plug the USB bluetooth dongle, then press enter to continue\n'
