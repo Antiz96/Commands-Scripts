@@ -11,7 +11,7 @@ do
         run "${i}"
 done
 
-EXPIRATION=$(expr '(' "$(date -d "${RESULT}"  +%s)" - "$(date +%s)" + 86399 ')' / 86400)
+EXPIRATION=$(( '(' "$(date -d "${RESULT}"  +%s)" - "$(date +%s)" + 86399 ')' / 86400))
 
 if [ "${EXPIRATION}" -le 31 ]; then
         echo "${EXPIRATION}"
