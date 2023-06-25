@@ -11,7 +11,7 @@ function run() {
         T_MONTH=$(date --date="$(printf "01 %s"  "${MONTH}" "${YEAR}")" +"%Y-%m" | cut -f2 -d"-")
         E_DATE="        ${YEAR}-${T_MONTH}-${DAY}"
         TODATE=$(date -d "${E_DATE}" +"%Y/%m/%d")  # = 20130718
-        DATS=$(( '(' "$(date -d "${TODATE}"  +%s)" - "$(date +%s)" + 86399 ')' / 86400))
+        DATS=$(( "( "$(date -d "${TODATE}"  +%s)" - "$(date +%s)" + 86399 )" / 86400))
 
         if [ "${DATS}" -le 31 ]; then
                 RESULT="$DATS $RESULT"
