@@ -1,9 +1,0 @@
-#Checking for Free Disk Space in a directory
-du -h --max-depth=1 /path
-
-#Same for AIX/KSH
-du -g /path | sort -nr | head
-
-#Checking for Free Disk Space excluding some directories (useful to check / excluding mounted point)
-du -h --max-depth=1 / --exclude=/{dev,run,lib,usr,tmp,opt,boot,var}
-
