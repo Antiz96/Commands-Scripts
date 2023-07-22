@@ -1,3 +1,5 @@
+# List too long
+
 When there's too much files in a directory (usually +10 000), some Linux commands don't work anymore.  
 Here's a useful command to bypass this limitation (the idea is to execute the command on each files separately instead of execute it on all files at the same time):
 

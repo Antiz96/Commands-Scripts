@@ -4,13 +4,13 @@
 du -h --max-depth=1 /path
 ```
 
-# Same for AIX/KSH
+## Same for AIX/KSH
 
 ```ksh
 du -g /path | sort -nr | head
 ```
 
-# Checking for used disk space excluding some directories 
+## Checking for used disk space excluding some directories
 
 *Useful to check `/` excluding mounted point.*
 
