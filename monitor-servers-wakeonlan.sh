@@ -9,16 +9,20 @@ servers["pmx02.rc"]="68:1d:ef:30:cc:88"
 declare -A fail_counter
 
 while true; do
-    for server in "${!servers[@]}"; do
-        if ping -c5 "${server}"; then
-            fail_counter["${server}"]=0
-        else
-            fail_counter["${server}"]=$((fail_counter["${server}"] + 1))
-            if [ "${fail_counter["${server}"]}" -eq 6 ]; then
-                    wakeonlan "${servers["${server}"]}"
-                    fail_counter["${server}"]=$((fail_counter["${server}"] - 1))
-            fi
-        fi
-    done
-    sleep 300
+        date
+        for server in "${!servers[@]}"; do
+                if ping -c5 "${server}" &>/dev/null; then
+                        fail_counter["${server}"]=0
+                        echo "${server} fail counter: ${fail_counter["${server}"]}"
+                else
+                        fail_counter["${server}"]=$((fail_counter["${server}"] + 1))
+                        echo "${server} fail counter: ${fail_counter["${server}"]}"
+                        if [ "${fail_counter["${server}"]}" -eq 6 ]; then
+                                wakeonlan "${servers["${server}"]}"
+                                fail_counter["${server}"]=$((fail_counter["${server}"] - 1))
+                        fi
+                fi
+        done
+        echo
+        sleep 300
 done
