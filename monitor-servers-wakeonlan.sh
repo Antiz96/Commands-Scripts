@@ -9,7 +9,6 @@ servers["pmx02.rc"]="68:1d:ef:30:cc:88"
 declare -A fail_counter
 
 while true; do
-        date
         for server in "${!servers[@]}"; do
                 if ping -c5 "${server}" &>/dev/null; then
                         fail_counter["${server}"]=0
@@ -18,11 +17,10 @@ while true; do
                         fail_counter["${server}"]=$((fail_counter["${server}"] + 1))
                         echo "${server} fail counter: ${fail_counter["${server}"]}"
                         if [ "${fail_counter["${server}"]}" -eq 6 ]; then
-                                wakeonlan "${servers["${server}"]}"
+                                wakeonlan "${servers["${server}"]}" && echo "$(date) - Wake On Lan packet sent to ${server}" >> /tmp/monitor-servers-wakeonlan_packet.log || echo "$(date) - Error sending a Wake On Lan packet to ${server}" >> /tmp/monitor-servers-wakeonlan_packet.log
                                 fail_counter["${server}"]=$((fail_counter["${server}"] - 1))
                         fi
                 fi
         done
-        echo
         sleep 300
 done
