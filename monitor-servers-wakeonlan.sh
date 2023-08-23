@@ -12,7 +12,7 @@ log_file="/var/log/monitor-servers-wakeonlan/wol_packet.log"
 
 while true; do
         for server in "${!servers[@]}"; do
-                if ping -c5 "${server}" &>/dev/null; then
+                if ping -c1 "${server}" &>/dev/null; then
                         fail_counter["${server}"]=0
                         echo "${server} fail counter: ${fail_counter["${server}"]}"
                 else
