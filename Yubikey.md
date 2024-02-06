@@ -6,7 +6,7 @@
 
 ```bash
 sudo pacman -S ccid yubico-piv-tool openssh
-sudo systemctl enable --now docker pcscd
+sudo systemctl enable --now pcscd
 systemctl --user enable --now ssh-agent.service
 ```
 
