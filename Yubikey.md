@@ -1,7 +1,5 @@
 # Yubikey
 
-
-
 ## SSH with PIV
 
 ### Install pre-requisites
