@@ -48,5 +48,16 @@ vim ~/.ssh/config
 **Warning:** The default value of `MaxAuthTries` for the SSH daemon is "6", meaning that the SSH connection will fail after 6 failed attempts.  
 That means that if you have more than 6 keys on your Yubikey, each key imported in a slot located after the 6 first ones on the Yubikey will cause the SSH connection to fail because of maximum tries being exceeded (since SSH tries each key stored on the Yubikey one by one until it finds the good one for the remote host).
 
-To prevent that, you can either increase the value of the `MaxAuthTries` parameter in the SSH daemon config (which obviously involves having root access to the remote machine) or re-import the needed key in an "earlier/lower" slot on the Yubikey (be aware that importing a key on a already used slot overwrite the key that is currently stored on it).  
-*Note: since v2.5.0, `yubico-piv-tool` have a feature to move keys between slots with the `move-key` action instead of having to re-import keys. However, you need a recent enough Yubikey with a recent firmware to use that option.*
+To prevent that, you can make your ssh config points to the corresponding **public** key (to avoid the need to have your private keys stored locally on your system, which would defeat the purpose of having a Yubikey) for your different hosts, instead of adding the PKCS11 provider directly. This will tell SSH to look directly for the corresponding private key in the ssh-agent (instead of trying all of them one by one):
+
+```bash
+vim ~/.ssh/config
+```
+
+```text
+Host host-example-1
+        IdentityFile ~/.ssh/id_ecdsa_host-example-1.pub
+
+Host host-example-2
+        IdentityFile ~/.ssh/id_ecdsa_host-example-2.pub
+```
