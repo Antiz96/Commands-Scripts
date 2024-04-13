@@ -44,4 +44,4 @@ sha256sums tarball.tar.gz > tarball.tar.gz.sha256
 gpg --local-user D33FAA16B937F3B2 --armor --detach-sign tarball.tar.gz.sha256
 ```
 
-Upload the `tarball.tar.gz.asc`, `tarball.tar.gz.sha256` & `tarball.tar.gz.sha256.asc` files produced by the above command as an attachment of the release.
+Upload the `tarball.tar.gz.asc`, `tarball.tar.gz.sha256` & `tarball.tar.gz.sha256.asc` files produced by the above commands as an attachment of the release.
