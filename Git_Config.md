@@ -27,12 +27,21 @@ git config commit.gpgsign true
 git config tag.gpgSign true
 ```
 
-## Sign auto-generated tar.gz tarball on releases (on GitHub, GitLab, Gitea...)
+## Sign auto-generated tar.gz tarball + checksum on releases (on GitHub, GitLab, Gitea...)
 
-Download the tarball locally and sign it via:
+*Not git related, but I'm using this on git releases for my projects.*
+
+Download the tarball locally and sign it:
 
 ```bash
-gpg --armor --detach-sign tarball.tar.gz
+gpg --local-user D33FAA16B937F3B2 --armor --detach-sign tarball.tar.gz
 ```
 
-Upload the `tarball.tar.gz.asc` file produced by the above command as an attachment of the release.
+Generate checksum file for the tarball and sign it:
+
+```bash
+sha256sums tarball.tar.gz > tarball.tar.gz.sha256
+gpg --local-user D33FAA16B937F3B2 --armor --detach-sign tarball.tar.gz.sha256
+```
+
+Upload the `tarball.tar.gz.asc`, `tarball.tar.gz.sha256` & `tarball.tar.gz.sha256.asc` files produced by the above command as an attachment of the release.
