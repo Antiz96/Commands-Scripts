@@ -29,7 +29,7 @@ git config tag.gpgSign true
 
 ## Sign auto-generated tar.gz tarball + checksum on releases (on GitHub, GitLab, Gitea...)
 
-*Not git related, but I'm using this on git releases for my projects."
+*Not git related, but I'm using this on git releases for my projects.*
 
 Download the tarball locally and sign it:
 
