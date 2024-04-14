@@ -40,7 +40,7 @@ gpg --local-user D33FAA16B937F3B2 --armor --detach-sign tarball.tar.gz
 Generate checksum file for the tarball and sign it:
 
 ```bash
-sha256sums tarball.tar.gz > tarball.tar.gz.sha256
+sha256sum tarball.tar.gz > tarball.tar.gz.sha256
 gpg --local-user D33FAA16B937F3B2 --armor --detach-sign tarball.tar.gz.sha256
 ```
 
