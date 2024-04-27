@@ -61,3 +61,38 @@ Host host-example-1
 Host host-example-2
         IdentityFile ~/.ssh/id_ecdsa_host-example-2.pub
 ```
+
+## GPG Signing
+
+### Generate and backup the OpenPGP key following Arch guidelines
+
+<https://gitlab.archlinux.org/archlinux/archlinux-keyring/-/wikis/best-practices#generating-a-new-key-pair>  
+<https://gitlab.archlinux.org/archlinux/archlinux-keyring/-/wikis/best-practices#key-holder>
+
+### Import the OpenPGP key on smartcard (YubiKey)
+
+<https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP>
+
+### Use the OpenPGP key stored on the YubiKey on other installs/computers
+
+Import the associated public key in your keyring:
+
+```bash
+gpg --import public_key.asc
+```
+
+Plug in the YubiKey and verify that it is correctly detected:
+
+```bash
+gpg --card-status
+```
+
+Trust the key ultimately:
+
+```bash
+gpg --edit-key KEYID
+    trust
+    5
+    y
+    quit
+```
