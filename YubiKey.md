@@ -1,4 +1,4 @@
-# Yubikey
+# YubiKey
 
 ## SSH with PIV
 
@@ -26,7 +26,7 @@ cp id_ecdsa id_ecdsa.pem
 ssh-keygen -p -f id_ecdsa.pem -m pem
 ```
 
-### Import key to Yubikey
+### Import key to YubiKey
 
 Replace SLOT by the one you want to import the key to.  
 Check [this link](https://docs.yubico.com/yesdk/users-manual/application-piv/slots.html) for a list of available slots.
@@ -46,9 +46,9 @@ vim ~/.ssh/config
 > [...]  
 
 **Warning:** The default value of `MaxAuthTries` for the SSH daemon is "6", meaning that the SSH connection will fail after 6 failed attempts.  
-That means that if you have more than 6 keys on your Yubikey, each key imported in a slot located after the 6 first ones on the Yubikey will cause the SSH connection to fail because of maximum tries being exceeded (since SSH tries each key stored on the Yubikey one by one until it finds the good one for the remote host).
+That means that if you have more than 6 keys on your YubiKey, each key imported in a slot located after the 6 first ones on the YubiKey will cause the SSH connection to fail because of maximum tries being exceeded (since SSH tries each key stored on the YubiKey one by one until it finds the good one for the remote host).
 
-To prevent that, you can make your ssh config points to the corresponding **public** key (to avoid the need to have your private keys stored locally on your system, which would defeat the purpose of having a Yubikey) for your different hosts, instead of adding the PKCS11 provider directly. This will tell SSH to look directly for the corresponding private key in the ssh-agent (instead of trying all of them one by one):
+To prevent that, you can make your ssh config points to the corresponding **public** key (to avoid the need to have your private keys stored locally on your system, which would defeat the purpose of having a YubiKey) for your different hosts, instead of adding the PKCS11 provider directly. This will tell SSH to look directly for the corresponding private key in the ssh-agent (instead of trying all of them one by one):
 
 ```bash
 vim ~/.ssh/config
