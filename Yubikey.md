@@ -87,7 +87,6 @@ Plug in the YubiKey and verify that it is correctly detected:
 gpg --card-status
 ```
 
-
 Trust the key ultimately:
 
 ```bash
