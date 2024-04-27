@@ -91,8 +91,8 @@ Trust the key ultimately:
 
 ```bash
 gpg --edit-key KEYID
-	trust
-	5
-	y
-	quit
+    trust
+    5
+    y
+    quit
 ```
